@@ -75,21 +75,27 @@ const C = {
     {
       t: "Resepsi",
       photos: ["img/l5.jpg", "img/c3.jpg"],
-      time: "15.00 - 18.00 WIB",
-      place: "Hotel Grand Tjokro Jakarta",
-      addr: "Jl. Daan Mogot No. 63, Kel. Tanjung Duren Utara, Kec. Grogol Petamburan, Kota Jakarta Barat.",
-      map: "https://maps.app.goo.gl/Yte3U3tN8GscBi5C6?g_st=ac",
+      date: "", // kosong = tanggal & hari tidak ditampilkan (isi mis. "2026-12-27" bila sudah ada)
+      time: "", // kosong = jam tidak ditampilkan
+      place: "Kediaman Mempelai Wanita",
+      addr: "Desa Kedung Putri, Kec. Paron, Kab. Ngawi, Jawa Timur",
+      map: "", // kosong = tombol "Buka Maps" disembunyikan
     },
   ],
   live: "", // link live streaming (kosongkan jika tidak ada)
-  music: "sound/golden hour.mp3", // lagu latar: taruh file mp3 di folder sound/
+  music: "sound/Lagu Pernikahan Kita.mpeg", // lagu latar: taruh file mp3 di folder sound/
   // alamat pengiriman kado (kosongkan {} jika tidak dipakai)
   giftAddress: {
     name: "Alim",
     addr: "ACER CUSTOMER SERVICE CENTER - RUKO MANGGA DUA SQUARE BLOK H NO. 28-29 - JL. GUNUNG SAHARI RAYA, KEL. ANCOL, KEC. PADEMANGAN, KOTA JAKARTA UTARA",
   },
   // rekening amplop digital (boleh lebih dari satu; kosongkan [] jika tidak dipakai)
-  gifts: [{ bank: "BCA", no: "3690022248", name: "NURALIM MA'MUN" }],
+  gifts: [
+    { bank: "BCA", no: "3690022248", name: "NURALIM MA'MUN", logo: "img/bca.svg" },
+    { bank: "BRI", no: "0969 0104 1638 533", name: "Umi Musidah Naila Izatin", logo: "img/bri.svg" },
+  ],
+  // nomor WhatsApp tujuan konfirmasi pengiriman hadiah (format 62xxx; kosong = pakai WA mempelai wanita)
+  giftWa: "6285888619272",
   // galeri: disarankan 6 foto portrait agar ringan (tampil sebagai slider + thumbnail)
   gallery: [
     "img/p1.jpg",

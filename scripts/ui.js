@@ -103,6 +103,6 @@ setInterval(tick, 1000);
 // tautan konfirmasi hadiah ke WhatsApp mempelai wanita (nama tamu dari ?to=)
 const giftWa = $("#giftWa");
 if (giftWa)
-  giftWa.href = `https://wa.me/${B.wa}?text=${encodeURIComponent(
+  giftWa.href = `https://wa.me/${C.giftWa || B.wa}?text=${encodeURIComponent(
     `Assalamu'alaikum, saya ${$("#guest").textContent} ingin mengonfirmasi pengiriman hadiah untuk pernikahan ${B.nick} & ${G.nick}. Terima kasih.`,
   )}`;

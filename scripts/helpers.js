@@ -54,11 +54,14 @@ const prof = (p, a, side = "l") => {
 };
 // Kartu acara (Akad/Resepsi): foto carousel di atas, lalu info + judul vertikal. Acara ganjil (akad) judul di kanan, acara genap (resepsi) judul di kiri.
 const evCard = (e, i) => {
-  const day = new Date(e.date || C.date)
-    .toLocaleDateString("id-ID", { weekday: "long", day: "numeric", month: "long", year: "numeric" })
-    .toUpperCase();
+  const day = e.date === ""
+    ? ""
+    : new Date(e.date || C.date)
+        .toLocaleDateString("id-ID", { weekday: "long", day: "numeric", month: "long", year: "numeric" })
+        .toUpperCase();
+  const dt = [day, e.time].filter(Boolean).join("<br>");
   const media = carousel(e.photos || (e.photo ? [e.photo] : []), e.t, i % 2 ? "l" : "r");
-  return `<div class="${i % 2 ? "rr" : "rl"} text-left bg-sk-200 text-n9 ${i % 2 ? "rounded-bl-[2rem]" : "rounded-br-[2rem]"} rounded-t-[2rem] overflow-hidden shadow-xl">${media ? `<div class="pc ph relative aspect-[3/2] w-full overflow-hidden">${media}</div>` : ""}<div class="flex ${i % 2 ? "flex-row-reverse" : ""}"><div class="flex-1 min-w-0 p-5 sm:p-7"><p class="font-bold tracking-wide text-base sm:text-lg leading-snug">${day}${e.time ? `<br>${e.time}` : ""}</p><p class="mt-4 text-sm sm:text-base font-medium">${e.place}</p><p class="text-sm mt-1 leading-relaxed">${e.addr}</p><a href="${e.map}" target="_blank" rel="noopener" class="mt-5 inline-block px-5 py-2.5 rounded-md bg-n7 text-white text-sm font-medium hover:bg-n8 transition">Buka Maps</a></div><div class="w-16 sm:w-20 flex-none flex items-center justify-center bg-n7 ${i % 2 ? "rounded-bl-[2rem]" : "rounded-br-[2rem]"}"><span class="font-script text-3xl sm:text-4xl text-white whitespace-nowrap" style="writing-mode:vertical-rl;${i % 2 ? "transform:rotate(180deg)" : ""}">${e.t}</span></div></div></div>`;
+  return `<div class="${i % 2 ? "rr" : "rl"} text-left bg-sk-200 text-n9 ${i % 2 ? "rounded-bl-[2rem]" : "rounded-br-[2rem]"} rounded-t-[2rem] overflow-hidden shadow-xl">${media ? `<div class="pc ph relative aspect-[3/2] w-full overflow-hidden">${media}</div>` : ""}<div class="flex ${i % 2 ? "flex-row-reverse" : ""}"><div class="flex-1 min-w-0 p-5 sm:p-7">${dt ? `<p class="font-bold tracking-wide text-base sm:text-lg leading-snug">${dt}</p>` : ""}<p class="${dt ? "mt-4 " : ""}text-sm sm:text-base font-medium">${e.place}</p><p class="text-sm mt-1 leading-relaxed">${e.addr}</p>${e.map ? `<a href="${e.map}" target="_blank" rel="noopener" class="mt-5 inline-block px-5 py-2.5 rounded-md bg-n7 text-white text-sm font-medium hover:bg-n8 transition">Buka Maps</a>` : ""}</div><div class="w-16 sm:w-20 flex-none flex items-center justify-center bg-n7 ${i % 2 ? "rounded-bl-[2rem]" : "rounded-br-[2rem]"}"><span class="font-script text-3xl sm:text-4xl text-white whitespace-nowrap" style="writing-mode:vertical-rl;${i % 2 ? "transform:rotate(180deg)" : ""}">${e.t}</span></div></div></div>`;
 };
 // Kartu cerita (Our Story): foto carousel bergeser ke bawah di atas, daftar momen di kiri, judul "Love Story" vertikal di kanan.
 const storyCard = () => {
