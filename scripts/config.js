@@ -52,7 +52,7 @@ const C = {
       "Merupakan sebuah kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu. Terima kasih.",
   },
   // URL Web App Google Apps Script (berakhiran /exec) untuk RSVP & ucapan. Kosongkan = disimpan di browser saja (hanya untuk uji coba)
-  rsvp: "",
+  rsvp: "https://script.google.com/macros/s/AKfycbwqubOEaIhRvknu1ulGTuK7Ohaz2w7og4ECivurgvghD-3GQZGpyyrqyM_ylupjvuCGdw/exec",
   // foto latar tiap bagian
   bg: {
     // latar paralax watercolor untuk bagian tanpa foto (Mempelai, Galeri, Cerita, Hadiah)
@@ -91,8 +91,18 @@ const C = {
   },
   // rekening amplop digital (boleh lebih dari satu; kosongkan [] jika tidak dipakai)
   gifts: [
-    { bank: "BCA", no: "3690022248", name: "NURALIM MA'MUN", logo: "img/bca.svg" },
-    { bank: "BRI", no: "0969 0104 1638 533", name: "Umi Musidah Naila Izatin", logo: "img/bri.svg" },
+    {
+      bank: "BCA",
+      no: "3690022248",
+      name: "NURALIM MA'MUN",
+      logo: "img/bca.svg",
+    },
+    {
+      bank: "BRI",
+      no: "0969 0104 1638 533",
+      name: "Umi Musidah Naila Izatin",
+      logo: "img/bri.svg",
+    },
   ],
   // nomor WhatsApp tujuan konfirmasi pengiriman hadiah (format 62xxx; kosong = pakai WA mempelai wanita)
   giftWa: "6285888619272",
